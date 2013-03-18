@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/grantjk/UIView-JGAAutoLayout"
   s.license      = 'MIT'
   s.author       = { "John Grant" => "johnkgrant@gmail.com" }
-  s.source       = { :git => "https://github.com/grantjk/UIView-JGAAutoLayout.git", :commit => "c2e41cb9e2442391d14f079864dbbfaef1980c26" }
+  s.source       = { :git => "https://github.com/grantjk/UIView-JGAAutoLayout.git", :commit => s.version }
   s.platform     = :ios, '6.0'
   s.source_files = '*.{h,m}'
   s.requires_arc = true
