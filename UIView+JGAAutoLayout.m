@@ -52,6 +52,15 @@
                                                     multiplier:1
                                                       constant:width]];
 }
+- (void)constrainToHeightOfAtLeast:(CGFloat)height {
+ [self addConstraint:[NSLayoutConstraint constraintWithItem:self
+                                                     attribute:NSLayoutAttributeHeight
+                                                     relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                        toItem:nil
+                                                     attribute:NSLayoutAttributeNotAnAttribute
+                                                    multiplier:1
+                                                      constant:height]];   
+}
 - (void)constrainToHeight:(CGFloat)height {
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self
                                                      attribute:NSLayoutAttributeHeight

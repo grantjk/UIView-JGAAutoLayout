@@ -11,7 +11,9 @@
 @interface UIView (JGAAutoLayout)
 
 - (void)constrainToWidth:(CGFloat)width;
+- (void)constrainToWidthOfAtLeast:(CGFloat)width;
 - (void)constrainToHeight:(CGFloat)height;
+- (void)constrainToHeightOfAtLeast:(CGFloat)height;
 
 - (void)centerInSuperview;
 - (void)centerInSuperviewOnX;
