@@ -43,6 +43,15 @@
                                                     multiplier:1
                                                       constant:width]];
 }
+- (void)constrainToWidthOfAtLeast:(CGFloat)width {
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self
+                                                     attribute:NSLayoutAttributeWidth
+                                                     relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                        toItem:nil
+                                                     attribute:NSLayoutAttributeNotAnAttribute
+                                                    multiplier:1
+                                                      constant:width]];
+}
 - (void)constrainToHeight:(CGFloat)height {
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self
                                                      attribute:NSLayoutAttributeHeight
