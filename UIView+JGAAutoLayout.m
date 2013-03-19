@@ -15,6 +15,24 @@
     [self centerInSuperviewOnY];
 }
 
+- (void)centerSubviewOnX:(UIView *)subview {
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:subview
+                                                     attribute:NSLayoutAttributeCenterX
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:self
+                                                     attribute:NSLayoutAttributeCenterX
+                                                    multiplier:1
+                                                      constant:1]];
+}
+- (void)centerSubviewOnY:(UIView *)subview {
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:subview
+                                                     attribute:NSLayoutAttributeCenterY
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:self
+                                                     attribute:NSLayoutAttributeCenterY
+                                                    multiplier:1
+                                                      constant:1]];
+}
 - (void)centerInSuperviewOnX {
     [[self superview] addConstraint:[NSLayoutConstraint constraintWithItem:self
                                                                  attribute:NSLayoutAttributeCenterX
@@ -77,6 +95,57 @@
                                                       constant:height]];
 }
 
+- (NSLayoutConstraint *)pinSubview:(UIView *)subview toLeftEdgeWithInset:(CGFloat)inset {
+    NSLayoutConstraint *constraint =[NSLayoutConstraint constraintWithItem:subview
+                                                                 attribute:NSLayoutAttributeLeft
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self
+                                                                 attribute:NSLayoutAttributeLeft
+                                                                multiplier:1
+                                                                  constant:inset];
+    [self addConstraint:constraint];
+    return constraint;
+}
+
+- (NSLayoutConstraint *)pinSubview:(UIView *)subview toRightEdgeWithInset:(CGFloat)inset {
+    NSLayoutConstraint *constraint =[NSLayoutConstraint constraintWithItem:subview
+                                                                 attribute:NSLayoutAttributeRight
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self
+                                                                 attribute:NSLayoutAttributeRight
+                                                                multiplier:1
+                                                                  constant:-inset];
+    [self addConstraint:constraint];
+    return constraint;
+}
+- (NSLayoutConstraint *)pinSubview:(UIView *)subview toTopEdgeWithInset:(CGFloat)inset {
+    NSLayoutConstraint *constraint =[NSLayoutConstraint constraintWithItem:subview
+                                                                 attribute:NSLayoutAttributeTop
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self
+                                                                 attribute:NSLayoutAttributeTop
+                                                                multiplier:1
+                                                                  constant:inset];
+    [self addConstraint:constraint];
+    return constraint;
+}
+- (NSLayoutConstraint *)pinSubview:(UIView *)subview toBottomEdgeWithInset:(CGFloat)inset {
+    NSLayoutConstraint *constraint =[NSLayoutConstraint constraintWithItem:subview
+                                                                 attribute:NSLayoutAttributeBottom
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self
+                                                                 attribute:NSLayoutAttributeBottom
+                                                                multiplier:1
+                                                                  constant:-inset];
+    [self addConstraint:constraint];
+    return constraint;
+}
+
+- (void)pinSubview:(UIView *)view1 toSubview:(UIView *)view2 attribute:(NSLayoutAttribute)attribute {
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:view1 attribute:attribute relatedBy:NSLayoutRelationEqual toItem:view2 attribute:attribute multiplier:1 constant:0]];
+}
+
+#pragma mark - Deprecated
 - (void)pinToLeftOfSuperViewWithInset:(CGFloat)inset {
     [[self superview] addConstraint:[NSLayoutConstraint constraintWithItem:self
                                                                 attribute:NSLayoutAttributeLeft
@@ -113,10 +182,6 @@
                                                                  attribute:NSLayoutAttributeBottom
                                                                 multiplier:1
                                                                   constant:-inset]];
-}
-
-- (void)pinSubview:(UIView *)view1 toSubview:(UIView *)view2 attribute:(NSLayoutAttribute)attribute {
-      [self addConstraint:[NSLayoutConstraint constraintWithItem:view1 attribute:attribute relatedBy:NSLayoutRelationEqual toItem:view2 attribute:attribute multiplier:1 constant:0]];
 }
 
 @end
