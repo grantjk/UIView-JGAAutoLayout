@@ -18,6 +18,7 @@
 - (void)centerInSuperview;
 - (void)centerInSuperviewOnX;
 - (void)centerInSuperviewOnY;
+- (void)constrainToSuperviewBounds;
 
 - (void)pinToLeftOfSuperViewWithInset:(CGFloat)inset;
 - (void)pinToRightOfSuperViewWithInset:(CGFloat)inset;

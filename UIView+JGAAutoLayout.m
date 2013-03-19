@@ -33,6 +33,12 @@
                                                                 multiplier:1
                                                                   constant:1]];
 }
+- (void)constrainToSuperviewBounds {
+    [self pinToLeftOfSuperViewWithInset:0];
+    [self pinToTopOfSuperViewWithInset:0];
+    [self pinToBottomOfSuperViewWithInset:0];
+    [self pinToRightOfSuperViewWithInset:0];
+}
 
 - (void)constrainToWidth:(CGFloat)width {
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self
