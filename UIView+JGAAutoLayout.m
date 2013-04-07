@@ -22,7 +22,7 @@
                                                         toItem:self
                                                      attribute:NSLayoutAttributeCenterX
                                                     multiplier:1
-                                                      constant:1];
+                                                      constant:0];
     [self addConstraint:constraint];
     return constraint;
 }
@@ -33,7 +33,7 @@
                                                         toItem:self
                                                      attribute:NSLayoutAttributeCenterY
                                                     multiplier:1
-                                                      constant:1];
+                                                      constant:0];
     [self addConstraint:constraint];
     return constraint;
 }
