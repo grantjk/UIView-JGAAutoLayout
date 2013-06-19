@@ -10,6 +10,7 @@
 
 @interface UIView (JGAAutoLayout)
 
+- (NSLayoutConstraint *)constrainToSquare;
 - (NSLayoutConstraint *)centerSubviewOnX:(UIView *)subview;
 - (NSLayoutConstraint *)centerSubviewOnY:(UIView *)subview;
 - (void)constrainSubviewToBounds:(UIView *)subview;

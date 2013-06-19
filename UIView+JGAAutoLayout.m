@@ -15,6 +15,17 @@
     [self centerInSuperviewOnY];
 }
 
+- (NSLayoutConstraint *)constrainToSquare {
+    NSLayoutConstraint *square = [NSLayoutConstraint constraintWithItem:self
+                                                              attribute:NSLayoutAttributeWidth
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:self
+                                                              attribute:NSLayoutAttributeHeight
+                                                             multiplier:1
+                                                               constant:0];
+    [self addConstraint:square];
+}
+
 - (NSLayoutConstraint *)centerSubviewOnX:(UIView *)subview {
    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:subview
                                                      attribute:NSLayoutAttributeCenterX
