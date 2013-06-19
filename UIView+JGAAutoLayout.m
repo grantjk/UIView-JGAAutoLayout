@@ -24,6 +24,7 @@
                                                              multiplier:1
                                                                constant:0];
     [self addConstraint:square];
+    return square;
 }
 
 - (NSLayoutConstraint *)centerSubviewOnX:(UIView *)subview {
